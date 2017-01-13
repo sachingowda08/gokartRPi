@@ -5,6 +5,7 @@ import os
 import pygame
 import time
 import random
+import serial
 pubnub = Pubnub(
     publish_key = "pub-c-981f15af-a53d-4141-adb5-2d1eed8e4c64",
     subscribe_key = "sub-c-ffc34cc4-d2ca-11e6-979a-02ee2ddab7fe")
@@ -41,9 +42,9 @@ def signal_handler(signal, frame):
     print("\nprogram exiting gracefully")
     sys.exit(0)
 print "render kar diya bhayaa"
+ser = serial.Serial('/dev/ttyUSB0')
 while 1:
-    
-
+    str=ser.readline()
     values=str.split(",")
     i=0
     v=[]
